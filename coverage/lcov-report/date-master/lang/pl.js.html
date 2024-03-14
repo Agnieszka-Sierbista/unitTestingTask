@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for date-master/lang/uk.js</title>
+    <title>Code coverage report for date-master/lang/pl.js</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../prettify.css" />
     <link rel="stylesheet" href="../../base.css" />
@@ -19,20 +19,20 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../index.html">All files</a> / <a href="index.html">date-master/lang</a> uk.js</h1>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">date-master/lang</a> pl.js</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">84.21% </span>
+                <span class="strong">89.47% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>32/38</span>
+                <span class='fraction'>34/38</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">53.84% </span>
+                <span class="strong">69.23% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>7/13</span>
+                <span class='fraction'>9/13</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">84.21% </span>
+                <span class="strong">89.47% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>32/38</span>
+                <span class='fraction'>34/38</span>
             </div>
         
             
@@ -121,16 +121,16 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">36x</span>
 <span class="cline-any cline-yes">36x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">24x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-yes">24x</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">24x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">24x</span>
@@ -148,31 +148,31 @@
 <span class="cstat-no" title="statement not covered" >        factory(window.unitTestingTask);</span>
 <span class="cstat-no" title="statement not covered" >    }</span>
 }(function (unitTestingTask) {
-    unitTestingTask.lang('uk', {
+    unitTestingTask.lang('pl', {
         _months: {
-            nominative: 'січень_лютий_березень_квітень_травень_червень_липень_серпень_вересень_жовтень_листопад_грудень'.split('_'),
-            accusative: 'січня_лютого_березня_квітня_травня_червня_липня_серпня_вересня_жовтня_листопада_грудня'.split('_')
+            nominative: 'styczeń_luty_marzec_kwiecień_maj_czerwiec_lipiec_sierpeń_wrzesień_październik_listopad_grudzień'.split('_'),
+            accusative: 'stycznia_lutego_marca_kwietnia_maja_czerwca_lipca_sierpnia_września_październik_listopada_grudnia'.split('_')
         },
         months: function (date, format) {
             var nounCase = /dd?\s*MMMM?/.test(format) ? 'accusative' : 'nominative';
             return this._months[nounCase][date.getMonth()];
         },
-        _monthsShort: 'січ_лют_бер_квіт_трав_черв_лип_серп_вер_жовт_лист_груд'.split('_'),
-        monthsShort: function (date) {
-            return this._monthsShort[date.getMonth()];
+        _monthsShort: {
+            nominative: 'sty_lut_mar_kwi_maj_cze_lip_sie_wrz_paź_lis_gru'.split('_'),
+            accusative: 'sty_lut_mar_kwi_maj_cze_lip_sie_wrz_paź_lis_gru'.split('_')
         },
-        weekdays: 'неділя_понеділок_вівторок_середа_четвер_п’ятниця_субота'.split('_'),
-        weekdaysShort: 'нд_пн_вт_ср_чт_пт_сб'.split('_'),
-        weekdaysMin: 'нд_пн_вт_ср_чт_пт_сб'.split('_'),
+        monthsShort: function (date, format) {
+            var nounCase = /dd?\s*MMMM?/.test(format) ? 'accusative' : 'nominative';
+            return this._monthsShort[nounCase][date.getMonth()];
+        },
+        weekdays: 'niedziela_poniedziałek_wtorek_środa_czwartek_piątek_sobota'.split('_'),
+        weekdaysShort: 'nie_pon_wt_śr_czw_pt_sb'.split('_'),
+        weekdaysMin: 'N_Pn_Wt_Śr_Cz_Pt_So'.split('_'),
         meridiem : function (hour) {
-            if (hour &lt; 4) <span class="branch-0 cbranch-no" title="branch not covered" >{</span>
-<span class="cstat-no" title="statement not covered" >                return 'ночі';</span>
-            } else if (hour &lt; 12) <span class="branch-0 cbranch-no" title="branch not covered" >{</span>
-<span class="cstat-no" title="statement not covered" >                return 'ранку';</span>
-            } else if (hour &lt; 17) <span class="branch-0 cbranch-no" title="branch not covered" >{</span>
-<span class="cstat-no" title="statement not covered" >                return 'дня';</span>
+            if (hour &lt; 12) <span class="branch-0 cbranch-no" title="branch not covered" >{</span>
+<span class="cstat-no" title="statement not covered" >                return 'rano';</span>
             } else {
-                return 'вечора';
+                return '';
             }
         }
     });

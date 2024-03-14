@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">57.89% </span>
+                <span class="strong">84.21% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>22/38</span>
+                <span class='fraction'>32/38</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">40% </span>
+                <span class="strong">53.84% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>2/5</span>
+                <span class='fraction'>7/13</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/3</span>
+                <span class='fraction'>3/3</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">57.89% </span>
+                <span class="strong">84.21% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>22/38</span>
+                <span class='fraction'>32/38</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line medium'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -116,27 +116,27 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">24x</span>
+<span class="cline-any cline-yes">24x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">36x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">24x</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">24x</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">24x</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">24x</span>
+<span class="cline-any cline-yes">24x</span>
+<span class="cline-any cline-yes">24x</span>
+<span class="cline-any cline-yes">24x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">(function (factory) {
@@ -153,28 +153,28 @@
             nominative: 'студзень_люты_сакавік_красавік_травень_чэрвень_ліпень_жнівень_верасень_кастрычнік_лістапад_снежань'.split('_'),
             accusative: 'студзеня_лютага_сакавіка_красавіка_траўня_чэрвеня_ліпеня_жніўня_верасеня_кастрычніка_лістапада_снежня'.split('_')
         },
-        months: <span class="fstat-no" title="function not covered" >function (date, format) {</span>
-<span class="cstat-no" title="statement not covered" >            var nounCase = /dd?\s*MMMM?/.test(format) ? 'accusative' : 'nominative';</span>
-<span class="cstat-no" title="statement not covered" >            return this._months[nounCase][date.getMonth()];</span>
+        months: function (date, format) {
+            var nounCase = /dd?\s*MMMM?/.test(format) ? 'accusative' : 'nominative';
+            return this._months[nounCase][date.getMonth()];
         },
         _monthsShort: 'сту_лют_сак_кра_тра_чэр_ліп_жні_вер_кас_лис_сне'.split('_'),
-        monthsShort: <span class="fstat-no" title="function not covered" >function (date) {</span>
-<span class="cstat-no" title="statement not covered" >            return this._monthsShort[date.getMonth()];</span>
+        monthsShort: function (date) {
+            return this._monthsShort[date.getMonth()];
         },
         weekdays: 'нядзеля_панядзелак_аўторак_серада_чацвер_пятніца_субота'.split('_'),
         weekdaysShort: 'ндз_пн_аўт_сер_чц_пт_сб'.split('_'),
         weekdaysMin: 'ндз_пн_аўт_сер_чц_пт_сб'.split('_'),
-        meridiem : <span class="fstat-no" title="function not covered" >function (hour) {</span>
-<span class="cstat-no" title="statement not covered" >            if (hour &lt; 4) {</span>
+        meridiem : function (hour) {
+            if (hour &lt; 4) <span class="branch-0 cbranch-no" title="branch not covered" >{</span>
 <span class="cstat-no" title="statement not covered" >                return 'ночы';</span>
-<span class="cstat-no" title="statement not covered" >            } else if (hour &lt; 12) {</span>
+            } else if (hour &lt; 12) <span class="branch-0 cbranch-no" title="branch not covered" >{</span>
 <span class="cstat-no" title="statement not covered" >                return 'раніцы';</span>
-<span class="cstat-no" title="statement not covered" >            } else if (hour &lt; 17) {</span>
+            } else if (hour &lt; 17) <span class="branch-0 cbranch-no" title="branch not covered" >{</span>
 <span class="cstat-no" title="statement not covered" >                return 'дня';</span>
-<span class="cstat-no" title="statement not covered" >            } else {</span>
-<span class="cstat-no" title="statement not covered" >                return 'вечара';</span>
-<span class="cstat-no" title="statement not covered" >            }</span>
-<span class="cstat-no" title="statement not covered" >        }</span>
+            } else {
+                return 'вечара';
+            }
+        }
     });
 }));
 &nbsp;</pre></td></tr></table></pre>
@@ -184,7 +184,7 @@
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2024-03-14T08:37:09.412Z
+                at 2024-03-18T16:31:31.158Z
             </div>
         <script src="../../prettify.js"></script>
         <script>
