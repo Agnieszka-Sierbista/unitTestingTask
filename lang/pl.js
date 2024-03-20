@@ -9,8 +9,8 @@
 }(function (unitTestingTask) {
     unitTestingTask.lang('pl', {
         _months: {
-            nominative: 'styczeń_luty_marzec_kwiecień_maj_czerwiec_lipiec_sierpeń_wrzesień_październik_listopad_grudzień'.split('_'),
-            accusative: 'stycznia_lutego_marca_kwietnia_maja_czerwca_lipca_sierpnia_września_październik_listopada_grudnia'.split('_')
+            nominative: 'styczeń_luty_marzec_kwiecień_maj_czerwiec_lipiec_sierpień_wrzesień_październik_listopad_grudzień'.split('_'),
+            accusative: 'stycznia_lutego_marca_kwietnia_maja_czerwca_lipca_sierpnia_września_października_listopada_grudnia'.split('_')
         },
         months: function (date, format) {
             var nounCase = /dd?\s*MMMM?/.test(format) ? 'accusative' : 'nominative';

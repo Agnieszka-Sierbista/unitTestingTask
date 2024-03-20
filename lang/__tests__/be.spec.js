@@ -3,7 +3,7 @@ const {datesToTest} = require("../../__mocks__/datesToTest.js");
 const {hours} = require('../../__mocks__/hours');
 const language = {long: "Belarusian", short: "be"};
 
-describe("[Unit Testing Task]: Belarusian language", () => {
+describe(`[Unit Testing Task]: ${language.long} language`, () => {
 
         beforeEach(() => {
             require('../' + language.short + '.js');
@@ -12,29 +12,28 @@ describe("[Unit Testing Task]: Belarusian language", () => {
 
         describe("Module own functions", () => {
 
-            it("Lang function can be called without parameters", () => {
+            it("should call unitTestingTask.lang() without arguments", () => {
                 expect(unitTestingTask.lang()).toStrictEqual(language.short);
             });
 
-            it("Lang function can be called with parameter", () => {
+            it("should call unitTestingTask.lang() with argument", () => {
                 expect(unitTestingTask.lang(language.short)).not.toStrictEqual("en");
                 expect(unitTestingTask.lang(language.short)).toStrictEqual("be");
             });
 
-            it("unitTestingTask function cannot be called without parameter", () => {
-                expect(() => unitTestingTask()).toThrowError(TypeError);
-                expect(() => unitTestingTask()).toThrowError(/Argument `format` must be a string/);
+            it("should throw an error when unitTestingTask function is called without arguments", () => {
+                expect(() => unitTestingTask()).toThrowError(TypeError("Argument `format` must be a string"));
             });
 
-            it("unitTestingTask.register function registers a name and a formatting style", () => {
+            it("should register a name and a formatting style when unitTestingTask.register function is called", () => {
                 let isolatedUnitTestingTask;
                 jest.isolateModules(() => {
-                    isolatedUnitTestingTask = require('../../unitTestingTask.js');
+                    isolatedUnitTestingTask = require('../../__mocks__/unitTestingTask.js');
                 });
 
                 require('../' + language.short + '.js');
                 isolatedUnitTestingTask.lang(language.short);
-                let previouslyRegistered = ["ISODate", "ISOTime", "ISODateTime", "ISODateTimeTZ"];
+                let previouslyRegistered = isolatedUnitTestingTask.formatters();
 
                 expect(previouslyRegistered).toBeDefined();
                 expect(isolatedUnitTestingTask.register("long date", "DDDD - dd.MM.YYYY")).not.toStrictEqual(previouslyRegistered);
@@ -47,14 +46,14 @@ describe("[Unit Testing Task]: Belarusian language", () => {
 
         datesToTest.forEach((currentDate) => {
 
-            describe(`Formatting functions for ${currentDate}`, () => {
+            describe(`Formatting functions results when unitTestingTask("formatting", ${currentDate}) called`, () => {
 
                 it("YYYY returns the full year", () => {
                     expect(unitTestingTask("YYYY", currentDate)).toBe(currentDate.getFullYear().toString());
                 });
 
                 it("YY returns the last two digits of the year", () => {
-                    expect(unitTestingTask("YY", currentDate)).toBe((currentDate.getFullYear() % 100).toString());
+                    expect(unitTestingTask("YY", currentDate)).toBe((currentDate.getFullYear() % 100).toString().padStart(2, "0"));
                 });
 
                 it("MMMM returns the full name of the month", () => {
@@ -161,11 +160,12 @@ describe("[Unit Testing Task]: Belarusian language", () => {
                                 return "ндз";
                             case "аў":
                                 return "аўт";
+                                case "ср":
+                                return "сер";
                             default:
                                 return trimmed;
                         }
                     })();
-
 
                     expect(unitTestingTask("DD", currentDate)).toBe(expected);
                 });
@@ -180,6 +180,8 @@ describe("[Unit Testing Task]: Belarusian language", () => {
                                 return "ндз";
                             case "аў":
                                 return "аўт";
+                            case "ср":
+                                return "сер";
                             default:
                                 return minimalDayName;
                         }
@@ -316,9 +318,8 @@ describe("[Unit Testing Task]: Belarusian language", () => {
     it("should clean global namespace with noConflict function", () => {
         let isolatedUnitTestingTask;
         jest.isolateModules(() => {
-            isolatedUnitTestingTask = require('../../unitTestingTask.js');
+            isolatedUnitTestingTask = require('../../__mocks__/unitTestingTask.js');
         });
-
 
         const prevUnitTestingTask = global.isolatedUnitTestingTask;
         const result = isolatedUnitTestingTask.noConflict();
