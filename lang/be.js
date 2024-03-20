@@ -10,13 +10,13 @@
     unitTestingTask.lang('be', {
         _months: {
             nominative: 'студзень_люты_сакавік_красавік_травень_чэрвень_ліпень_жнівень_верасень_кастрычнік_лістапад_снежань'.split('_'),
-            accusative: 'студзеня_лютага_сакавіка_красавіка_траўня_чэрвеня_ліпеня_жніўня_верасеня_кастрычніка_лістапада_снежня'.split('_')
+            accusative: 'студзеня_лютага_сакавіка_красавіка_траўня_чэрвеня_ліпеня_жніўня_верасня_кастрычніка_лістапада_снежня'.split('_')
         },
         months: function (date, format) {
             var nounCase = /dd?\s*MMMM?/.test(format) ? 'accusative' : 'nominative';
             return this._months[nounCase][date.getMonth()];
         },
-        _monthsShort: 'сту_лют_сак_кра_тра_чэр_ліп_жні_вер_кас_лис_сне'.split('_'),
+        _monthsShort: 'сту_лют_сак_кра_тра_чэр_ліп_жні_вер_кас_ліс_сне'.split('_'),
         monthsShort: function (date) {
             return this._monthsShort[date.getMonth()];
         },
