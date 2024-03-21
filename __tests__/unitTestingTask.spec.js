@@ -9,13 +9,6 @@ describe("Unit Testing Task", () => {
 
         describe("Unit Testing Task module external language dependencies agnostic", () => {
 
-            beforeEach(() => {
-
-                const en = unitTestingTask._languages['en']
-
-                unitTestingTask.lang('en', en);
-            });
-
             describe("Module general", () => {
 
                 it('should work in CommonJS environment', () => {
@@ -36,6 +29,7 @@ describe("Unit Testing Task", () => {
 
                 it("should call unitTestingTask.lang with argument", () => {
                     expect(unitTestingTask.lang("be")).toStrictEqual("be");
+                    console.log(unitTestingTask.lang())
                     expect(unitTestingTask.lang("en")).toStrictEqual("en");
                 });
 

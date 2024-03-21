@@ -31,8 +31,6 @@ describe(`[Unit Testing Task]: ${language.long} language`, () => {
                     isolatedUnitTestingTask = require('../../__mocks__/unitTestingTask.js');
                 });
 
-                require('../' + language.short + '.js');
-                isolatedUnitTestingTask.lang(language.short);
                 let previouslyRegistered = isolatedUnitTestingTask.formatters();
 
                 expect(previouslyRegistered).toBeDefined();
